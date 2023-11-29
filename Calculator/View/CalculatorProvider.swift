@@ -80,20 +80,18 @@ class CalculatorProvider {
     case .percent:
       if !resultNum.isEmpty {
         reset(reLeftOp: true)
-        if let v = numStringToDouble(numString: leftNum) {
+        if let v = formatter.number(from: leftNum)?.doubleValue {
           leftNum = "\(v * 0.01)"
-        } else {
-          leftNum = ""
         }
       } else {
         if let _ = op {
-          if let r = numStringToDouble(numString: rightNum) {
+          if let r = formatter.number(from: rightNum)?.doubleValue {
             if let target = formatter.string(from: NSNumber(value: r / 100)) {
               rightNum = target
             }
           }
         } else {
-          if let l = numStringToDouble(numString: leftNum) {
+          if let l = formatter.number(from: leftNum)?.doubleValue {
             if let target = formatter.string(from: NSNumber(value: l / 100)) {
               leftNum = target
             }
@@ -161,8 +159,8 @@ class CalculatorProvider {
     if rnd.hasSuffix(".") {
       rnd.removeLast()
     }
-    let lo = Double("\(leftSign.detailDesc())\(lnd)") ?? 0
-    let ro = Double("\(rightSign.detailDesc())\(rnd)") ?? 0
+    let lo = formatter.number(from: "\(leftSign.detailDesc())\(lnd)")?.doubleValue ?? 0
+    let ro = formatter.number(from: "\(rightSign.detailDesc())\(rnd)")?.doubleValue ?? 0
     var r: Double = 0
 
     switch op {
@@ -194,11 +192,6 @@ class CalculatorProvider {
       }
       result = "\(result)."
     }
-    return result
-  }
-
-  private func numStringToDouble(numString: String) -> Double? {
-    guard let result = Double(numString) else { return nil }
     return result
   }
 }
