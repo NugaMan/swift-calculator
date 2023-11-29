@@ -82,18 +82,22 @@ class CalculatorProvider {
       if !resultNum.isEmpty {
         reset(reLeftOp: true)
         if let v = numStringToDouble(numString: leftNum) {
-          leftNum = "\(v / 100.0)"
+          leftNum = "\(v * 0.01)"
         } else {
           leftNum = ""
         }
       } else {
         if let _ = op {
           if let r = numStringToDouble(numString: rightNum) {
-            rightNum = "\(r / 100.0)"
+            if let target = formatter.string(from: NSNumber(value: r / 100)) {
+              rightNum = target
+            }
           }
         } else {
           if let l = numStringToDouble(numString: leftNum) {
-            leftNum = "\(l / 100.0)"
+            if let target = formatter.string(from: NSNumber(value: l / 100)) {
+              leftNum = target
+            }
           }
         }
       }
@@ -140,7 +144,9 @@ class CalculatorProvider {
         }
       }
     case .equal:
-      let _ = calculator()
+      if !leftNum.isEmpty && !rightNum.isEmpty {
+        let _ = calculator()
+      }
     }
   }
 
