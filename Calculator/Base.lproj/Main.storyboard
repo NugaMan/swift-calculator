@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YAS-uu-0c2">
+                                <rect key="frame" x="8" y="390" width="377" height="428"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="116" placeholderIntrinsicHeight="428" translatesAutoresizingMaskIntoConstraints="NO" id="5uX-E0-Hcl" customClass="NumberPanelView" customModule="Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="428"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-au-vJu">
+                                        <rect key="frame" x="163.66666666666666" y="0.0" width="50" height="428"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7G3-wo-G2l">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="6bv-Be-ZHi"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tct-B7-UFE">
+                                                <rect key="frame" x="0.0" y="100" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="QGp-du-mAk"/>
+                                                    <constraint firstAttribute="width" secondItem="tct-B7-UFE" secondAttribute="height" multiplier="1:1" id="Ugn-lt-kvP"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="&lt;"/>
+                                                <connections>
+                                                    <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SpS-S2-CFX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBI-v8-37F">
+                                                <rect key="frame" x="0.0" y="150" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="NBI-v8-37F" secondAttribute="height" multiplier="1:1" id="qeS-pD-Gcs"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                                                <connections>
+                                                    <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLg-vF-San"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="mtM-a2-mJd">
+                                                <rect key="frame" x="0.0" y="200" width="50" height="178"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU0-km-89p">
+                                                <rect key="frame" x="0.0" y="378" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="WU0-km-89p" secondAttribute="height" multiplier="1:1" id="ejU-fI-1bv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="DEL"/>
+                                                <connections>
+                                                    <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RTK-Zf-X1P"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="HoO-TQ-OLe"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Cao-vP-gxa" customClass="NumberPanelView" customModule="Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="218.66666666666663" y="0.0" width="158.33333333333337" height="428"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5uX-E0-Hcl" firstAttribute="width" secondItem="Cao-vP-gxa" secondAttribute="width" id="hOi-Q9-Hxy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YAS-uu-0c2" secondAttribute="bottom" id="8Wf-n4-8sm"/>
+                            <constraint firstItem="YAS-uu-0c2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="WTT-Xv-I4v"/>
+                            <constraint firstItem="YAS-uu-0c2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" id="qyc-Vg-EWx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YAS-uu-0c2" secondAttribute="trailing" constant="8" id="t5Z-rw-raH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionPanel" destination="OeT-au-vJu" id="tFa-ml-Pqy"/>
+                        <outlet property="leftPanel" destination="5uX-E0-Hcl" id="mWI-XK-nL2"/>
+                        <outlet property="rightPanel" destination="Cao-vP-gxa" id="H5i-QF-KR9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="4"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="5uX-E0-Hcl">
+            <size key="intrinsicContentSize" width="116" height="428"/>
+        </designable>
+    </designables>
+</document>
