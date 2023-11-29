@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class NumberPanelView: UIView {
+class NumberPanelView: UIView     {
    @IBOutlet private weak var resultLabel: UILabel!
    @IBOutlet private weak var detailLabel: UILabel!
 

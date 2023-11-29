@@ -15,10 +15,13 @@ class CalculatorProvider {
   private var resultNum = ""
   private var op: KeyType?
   private var formatter = NumberFormatter()
+    
+    private let maxLen = 9
 
   init() {
     formatter.numberStyle = .decimal
     formatter.minimumFractionDigits = 0
+    formatter.maximumFractionDigits = maxLen
   }
 
   let error = "Error"
@@ -66,9 +69,13 @@ class CalculatorProvider {
         reset(reLeftOp: true, lSign: !hasSign)
       } else {
         if let _ = op {
-          rightSign = rightSign.toggle()
+            if !rightNum.isEmpty && rightNum != "0" {
+                rightSign = rightSign.toggle()
+            }
         } else {
-          leftSign = leftSign.toggle()
+            if !leftNum.isEmpty && leftNum != "0" {
+                leftSign = leftSign.toggle()
+            }
         }
       }
     case .percent:
@@ -97,9 +104,13 @@ class CalculatorProvider {
 
       } else {
         if let _ = op {
-          rightNum = rightNum + "\(key.rawValue)"
+            if (rightNum.count < maxLen) {
+                rightNum = rightNum + "\(key.rawValue)"
+            }
         } else {
-          leftNum += "\(key.rawValue)"
+            if (leftNum.count < maxLen) {
+                leftNum += "\(key.rawValue)"
+            }
         }
       }
     case .add, .minus, .division, .multi:
@@ -125,19 +136,9 @@ class CalculatorProvider {
       if !resultNum.isEmpty {
       } else {
         if let _ = op {
-          if !rightNum.contains(".") {
-            if rightNum.isEmpty {
-              rightNum = "0"
-            }
-            rightNum = "\(rightNum)."
-          }
+            rightNum = appendDot(numStr: rightNum)
         } else {
-          if !leftNum.contains(".") {
-            if leftNum.isEmpty {
-              leftNum = "0"
-            }
-            leftNum = "\(leftNum)."
-          }
+            leftNum = appendDot(numStr: leftNum)
         }
       }
     case .equal:
@@ -178,10 +179,20 @@ class CalculatorProvider {
     default:
       break
     }
-
     resultNum = formatter.string(from: NSNumber(value: r)) ?? ""
     return true
   }
+    
+    private func appendDot(numStr: String) -> String {
+        var result: String = numStr
+        if !result.contains(".") {
+          if result.isEmpty {
+              result = "0"
+          }
+          result = "\(result)."
+        }
+        return result
+    }
 
   private func numStringToDouble(numString: String) -> Double? {
     guard let result = Double(numString) else { return nil }
