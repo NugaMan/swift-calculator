@@ -28,9 +28,8 @@ class CalculatorProvider {
 
   var detail: String {
     if leftNum.isEmpty { return "0" }
-    return """
-       \(leftSign.detailDesc())\(leftNum) \( op?.opString ?? "") \(rightSign.detailDesc())\(rightNum) \(!resultNum.isEmpty ? "= \(result)" : "")
-      """
+    return
+      "\(leftSign.detailDesc())\(leftNum) \( op?.opString ?? "") \(rightSign.detailDesc())\(rightNum) \(!resultNum.isEmpty ? "= \(result)" : "")"
   }
 
   var result: String {

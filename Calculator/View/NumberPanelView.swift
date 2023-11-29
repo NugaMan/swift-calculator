@@ -27,7 +27,6 @@ class NumberPanelView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    loadXibView()
   }
 
   required init?(coder: NSCoder) {
