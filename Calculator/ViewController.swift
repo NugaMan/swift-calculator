@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     let action = (ActionType(rawValue: sender.tag)) ?? ActionType.reset
     switch action {
     case .reset:
-        leftPanel.clear()
-        rightPanel.clear()
+      leftPanel.clear()
+      rightPanel.clear()
     case .toRight:
       rightPanel.resetResult(result: leftPanel.resultStr)
     default:

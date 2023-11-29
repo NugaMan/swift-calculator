@@ -15,8 +15,8 @@ class CalculatorProvider {
   private var resultNum = ""
   private var op: KeyType?
   private var formatter = NumberFormatter()
-    
-    private let maxLen = 9
+
+  private let maxLen = 9
 
   init() {
     formatter.numberStyle = .decimal
@@ -38,10 +38,10 @@ class CalculatorProvider {
   }
 
   func updateResult(result: String) {
-      if result != error {
-          reset()
-          leftNum = result
-      }
+    if result != error {
+      reset()
+      leftNum = result
+    }
   }
 
   func reset(reLeftOp: Bool = false, lSign: Bool = false) {
@@ -69,13 +69,13 @@ class CalculatorProvider {
         reset(reLeftOp: true, lSign: !hasSign)
       } else {
         if let _ = op {
-            if !rightNum.isEmpty && rightNum != "0" {
-                rightSign = rightSign.toggle()
-            }
+          if !rightNum.isEmpty && rightNum != "0" {
+            rightSign = rightSign.toggle()
+          }
         } else {
-            if !leftNum.isEmpty && leftNum != "0" {
-                leftSign = leftSign.toggle()
-            }
+          if !leftNum.isEmpty && leftNum != "0" {
+            leftSign = leftSign.toggle()
+          }
         }
       }
     case .percent:
@@ -104,13 +104,13 @@ class CalculatorProvider {
 
       } else {
         if let _ = op {
-            if (rightNum.count < maxLen) {
-                rightNum = rightNum + "\(key.rawValue)"
-            }
+          if rightNum.count < maxLen {
+            rightNum = rightNum + "\(key.rawValue)"
+          }
         } else {
-            if (leftNum.count < maxLen) {
-                leftNum += "\(key.rawValue)"
-            }
+          if leftNum.count < maxLen {
+            leftNum += "\(key.rawValue)"
+          }
         }
       }
     case .add, .minus, .division, .multi:
@@ -122,8 +122,6 @@ class CalculatorProvider {
           if calculator() {
             reset(reLeftOp: true)
             op = key
-          } else {
-              
           }
         } else {
           if !leftNum.isEmpty {
@@ -136,9 +134,9 @@ class CalculatorProvider {
       if !resultNum.isEmpty {
       } else {
         if let _ = op {
-            rightNum = appendDot(numStr: rightNum)
+          rightNum = appendDot(numStr: rightNum)
         } else {
-            leftNum = appendDot(numStr: leftNum)
+          leftNum = appendDot(numStr: leftNum)
         }
       }
     case .equal:
@@ -182,17 +180,17 @@ class CalculatorProvider {
     resultNum = formatter.string(from: NSNumber(value: r)) ?? ""
     return true
   }
-    
-    private func appendDot(numStr: String) -> String {
-        var result: String = numStr
-        if !result.contains(".") {
-          if result.isEmpty {
-              result = "0"
-          }
-          result = "\(result)."
-        }
-        return result
+
+  private func appendDot(numStr: String) -> String {
+    var result: String = numStr
+    if !result.contains(".") {
+      if result.isEmpty {
+        result = "0"
+      }
+      result = "\(result)."
     }
+    return result
+  }
 
   private func numStringToDouble(numString: String) -> Double? {
     guard let result = Double(numString) else { return nil }

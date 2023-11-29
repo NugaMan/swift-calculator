@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class NumberPanelView: UIView     {
-   @IBOutlet private weak var resultLabel: UILabel!
-   @IBOutlet private weak var detailLabel: UILabel!
+class NumberPanelView: UIView {
+  @IBOutlet private weak var resultLabel: UILabel!
+  @IBOutlet private weak var detailLabel: UILabel!
 
   let provider = CalculatorProvider()
-    
-    var resultStr: String {
-        return provider.result
-    }
+
+  var resultStr: String {
+    return provider.result
+  }
 
   @IBAction func click(_ sender: UIButton) {
     let keyType = (KeyType(rawValue: sender.tag)) ?? KeyType.clear
@@ -34,16 +34,16 @@ class NumberPanelView: UIView     {
     super.init(coder: coder)
     loadXibView()
   }
-    
-    func clear() {
-        provider.reset()
-        showResult()
-    }
-    
-    func resetResult(result: String) {
-        provider.updateResult(result: result)
-        showResult()
-    }
+
+  func clear() {
+    provider.reset()
+    showResult()
+  }
+
+  func resetResult(result: String) {
+    provider.updateResult(result: result)
+    showResult()
+  }
 
   private func loadXibView() {
     let bundle = Bundle(for: type(of: self))
