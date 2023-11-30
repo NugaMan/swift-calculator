@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-@IBDesignable
-class NumberPanelView: UIView {
+@IBDesignable class NumberPanelView: UIView {
   @IBOutlet private weak var resultLabel: UILabel!
   @IBOutlet private weak var detailLabel: UILabel!
 
-  let provider = CalculatorProvider()
+  private let provider = CalculatorProvider()
 
   var resultStr: String {
     return provider.result
